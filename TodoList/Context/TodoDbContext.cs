@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
-using ToDoApi.Models;
+using TodoList.Models;
 
-namespace ToDoApi.Context
+namespace TodoList.Context
 {
     public class TodoDbContext : DbContext, IDisposable
     {

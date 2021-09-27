@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using ToDoApi.Models;
-using ToDoApi.Service.Interfaces;
+using TodoList.Models;
+using TodoList.Service.Interfaces;
 using Swashbuckle.AspNetCore.Annotations;
 
-namespace ToDoApi.Controllers
+namespace TodoList.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

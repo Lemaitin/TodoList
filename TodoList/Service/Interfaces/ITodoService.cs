@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using ToDoApi.Models;
+using TodoList.Models;
 
-namespace ToDoApi.Service.Interfaces
+namespace TodoList.Service.Interfaces
 {
     public interface ITodoService
     {

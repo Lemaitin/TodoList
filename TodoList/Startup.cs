@@ -5,13 +5,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
-using ToDoApi.Context;
-using ToDoApi.Service;
-using ToDoApi.Service.Interfaces;
-using ToDoApi.Repository.Interfaces;
-using ToDoApi.Repository;
+using TodoList.Context;
+using TodoList.Service;
+using TodoList.Service.Interfaces;
+using TodoList.Repository.Interfaces;
+using TodoList.Repository;
 
-namespace ToDoApi
+namespace TodoList
 {
     public class Startup
     {
@@ -30,7 +30,7 @@ namespace ToDoApi
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ToDoApi", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "TodoList", Version = "v1" });
             });
         }
 
@@ -40,7 +40,7 @@ namespace ToDoApi
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ToDoApi v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "TodoList v1"));
             }
 
             app.UseHttpsRedirection();

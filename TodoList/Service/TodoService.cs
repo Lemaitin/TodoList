@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using ToDoApi.Models;
-using ToDoApi.Service.Interfaces;
-using ToDoApi.Repository.Interfaces;
+using TodoList.Models;
+using TodoList.Service.Interfaces;
+using TodoList.Repository.Interfaces;
 
-namespace ToDoApi.Service
+namespace TodoList.Service
 {
     public class TodoService : ITodoService
     {

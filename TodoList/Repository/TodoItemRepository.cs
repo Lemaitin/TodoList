@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using ToDoApi.Context;
-using ToDoApi.Models;
-using ToDoApi.Repository.Interfaces;
+using TodoList.Context;
+using TodoList.Models;
+using TodoList.Repository.Interfaces;
 
-namespace ToDoApi.Repository
+namespace TodoList.Repository
 {
     public class TodoItemRepository : ITodoItemRepository
     {
