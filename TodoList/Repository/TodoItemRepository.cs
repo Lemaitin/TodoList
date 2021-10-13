@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using TodoList.Context;
@@ -18,12 +19,12 @@ namespace TodoList.Repository
 
         public async Task<IEnumerable<TodoItem>> GetItemsAsync()
         {
-            return await _db.TodoItems.ToListAsync();
+            return await _db.TodoItems.Include(b => b.Status).Include(b => b.Deadline).ToListAsync();
         }
 
         public async Task<TodoItem> GetItemAsync(int id)
         {
-            return await _db.TodoItems.FindAsync(id);
+            return await _db.TodoItems.Include(b => b.Status).Include(b => b.Deadline).Where(b => b.Id == id).FirstOrDefaultAsync();
         }
 
         public async Task CreateAsync(TodoItem item)

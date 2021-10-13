@@ -12,17 +12,20 @@ namespace TodoList.Models
 
         [Required]
         [MaxLength(500)]
-
         public string Name { get; set; }
 
         [Required]
         public DateTime CreatedDate { get; set; }
+        
+        public Status Status { get; set; }
+        
+        public Deadline Deadline { get; set; }
+
+        [ForeignKey("DeadlineID")]
+        public int? DeadlineId { get; set; }
 
         [Required]
         [ForeignKey("StatusID")]
-        public Status Status { get; set; }
-
-        [ForeignKey("DeadlineID")]
-        public Deadline Deadline { get; set; }
+        public int StatusId { get; set; }
     }
 }

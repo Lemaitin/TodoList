@@ -10,8 +10,8 @@ using TodoList.Context;
 namespace TodoList.Migrations
 {
     [DbContext(typeof(TodoDbContext))]
-    [Migration("20210930182215_M2")]
-    partial class M2
+    [Migration("20211013165457_M1")]
+    partial class M1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -83,9 +83,11 @@ namespace TodoList.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("getdate()");
 
-                    b.Property<int?>("DeadlineID")
+                    b.Property<int?>("DeadlineId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -93,14 +95,14 @@ namespace TodoList.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
-                    b.Property<int>("StatusID")
+                    b.Property<int>("StatusId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DeadlineID");
+                    b.HasIndex("DeadlineId");
 
-                    b.HasIndex("StatusID");
+                    b.HasIndex("StatusId");
 
                     b.ToTable("TodoItem");
                 });
@@ -120,11 +122,11 @@ namespace TodoList.Migrations
                 {
                     b.HasOne("TodoList.Models.Deadline", "Deadline")
                         .WithMany()
-                        .HasForeignKey("DeadlineID");
+                        .HasForeignKey("DeadlineId");
 
                     b.HasOne("TodoList.Models.Status", "Status")
                         .WithMany()
-                        .HasForeignKey("StatusID")
+                        .HasForeignKey("StatusId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
